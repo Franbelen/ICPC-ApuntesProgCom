@@ -1,0 +1,1 @@
+notebook-generator ./ --author "Equipo Femenino UC" --size 11 --image ./.Assets/UC-Logo
