@@ -16,10 +16,13 @@
 
 // maximo matching m*sqrt(n)
 
+// usados: ll, vl, vi;
+
 class Dinic{
     struct Edge { int to, rev; ll f, c; };
     int n, t_; vector<vector<Edge>> G;
     vl D; vi q, W;
+
     bool bfs(int s, int t){
         W.assign(n, 0); D.assign(n, -1); D[s] = 0;
         int f = 0, l = 0; q[l++] = s;
@@ -53,3 +56,21 @@ public:
         return ans;
     }
 };
+
+int n,m,a,b;
+ll c;
+
+int main()
+{
+    cin >> n >> m; // n vertices, m aristas
+    Dinic Grafo(n+1);
+
+    for (int i = 0; i < m ; i ++)
+    {
+        cin >> a >> b >> c; // a conecta b con peso c
+        Grafo.addEdge(a,b,c);
+    }
+
+    c = Grafo.maxFlow(1,n);
+    cout << c << "\n";
+}
