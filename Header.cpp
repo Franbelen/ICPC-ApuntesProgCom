@@ -38,5 +38,11 @@ int main() {
 	// ulimit -s 1048576 more stack size 1gb
 	// g++ -std=c++11 Code1.cpp && a.exe < in > out
 	cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
+
+	//fijar precision de double 
+	double f =3.14159;
+	
+  	cout << setprecision(2) << f << '\n';
+
 	return 0;
 }
