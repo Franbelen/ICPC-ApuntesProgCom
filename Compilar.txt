@@ -1,1 +1,5 @@
 notebook-generator ./ --author "Equipo Femenino UC" --size 11 --image ./.Assets/UC-Logo
+
+Para size 11, maximo 65 caracteres por linea.
+
+"editor.rulers": [65]" en VSCODE settings.json

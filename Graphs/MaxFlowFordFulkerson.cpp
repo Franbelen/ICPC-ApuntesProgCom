@@ -1,12 +1,10 @@
 #include "../Header.cpp"
   
-
 // minimo cubrimiento aristas = min-cut
 // extremos de aristas cortadas que no son s ni t
 // max conj, ind = nodos - minimo cubrimiento aristas
 
-// O(VE^2)
-// O(EF)
+// O(VE^2) / O(EF)
 
 // Number of vertices in given graph 
 #define V 6 
@@ -15,12 +13,12 @@
   residual graph. Also fills parent[] to store the path */
 int bfs(int rGraph[V][V], int s, int t, int parent[]) 
 { 
-    // Create a visited array and mark all vertices as not visited 
+    // Create a visited array and mark all vertices as notvisited 
     bool visited[V]; 
     memset(visited, 0, sizeof(visited)); 
   
-    // Create a queue, enqueue source vertex and mark source vertex 
-    // as visited 
+    // Create a queue, enqueue source vertex and mark source
+    // vertex as visited
     queue <int> q; 
     q.push(s); 
     visited[s] = true; 
@@ -43,14 +41,15 @@ int bfs(int rGraph[V][V], int s, int t, int parent[])
         } 
     } 
   
-    // If we reached sink in BFS starting from source, then return 
-    // true, else false 
+    // If we reached sink in BFS starting from source, then
+    // return true, else false 
     return (visited[t] == true); 
 } 
   
-// A DFS based function to find all reachable vertices from s.  The function 
-// marks visited[i] as true if i is reachable from s.  The initial values in 
-// visited[] must be false. We can also use BFS to find reachable vertices 
+// A DFS based function to find all reachable vertices from s.
+// The function marks visited[i] as true if i is reachable from s  
+// The initial values in visited[] must be false.
+// We can also use BFS to find reachable vertices 
 void dfs(int rGraph[V][V], int s, bool visited[]) 
 { 
     visited[s] = true; 
@@ -63,22 +62,22 @@ void dfs(int rGraph[V][V], int s, bool visited[])
 void minCut(int graph[V][V], int s, int t) 
 { 
     int u, v; 
-  
     // Create a residual graph and fill the residual graph with 
-    // given capacities in the original graph as residual capacities 
+    // given capacities in the original graph as residual capa.
     // in residual graph 
-    int rGraph[V][V]; // rGraph[i][j] indicates residual capacity of edge i-j 
+    int rGraph[V][V];
+    // rGraph[i][j] indicates residual capacity of edge i-j 
     for (u = 0; u < V; u++) 
         for (v = 0; v < V; v++) 
              rGraph[u][v] = graph[u][v]; 
   
-    int parent[V];  // This array is filled by BFS and to store path 
-    int max_flow = 0;  // There is no flow initially 
+    int parent[V];// This array is filled by BFS and stores path 
+    int max_flow = 0; // There is no flow initially 
     // Augment the flow while there is a path from source to sink 
     while (bfs(rGraph, s, t, parent)) 
     { 
         // Find minimum residual capacity of the edhes along the 
-        // path filled by BFS. Or we can say find the maximum flow 
+        // path filled by BFS. Or find the maximum flow 
         // through the path found. 
         int path_flow = INT_MAX; 
         for (v=t; v!=s; v=parent[v]) 
@@ -87,8 +86,8 @@ void minCut(int graph[V][V], int s, int t)
             path_flow = min(path_flow, rGraph[u][v]); 
         } 
   
-        // update residual capacities of the edges and reverse edges 
-        // along the path 
+        // update residual capacities of the edges and reverse 
+        // edges along the path 
         for (v=t; v != s; v=parent[v]) 
         { 
             u = parent[v]; 
@@ -103,7 +102,7 @@ void minCut(int graph[V][V], int s, int t)
     memset(visited, false, sizeof(visited)); 
     dfs(rGraph, s, visited); 
   
-    // Print all edges that are from a reachable vertex to 
+    // Print all edges that are from a reachable vertex to
     // non-reachable vertex in the original graph 
     for (int i = 0; i < V; i++) 
       for (int j = 0; j < V; j++) 
