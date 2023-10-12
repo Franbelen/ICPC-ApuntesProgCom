@@ -1,5 +1,5 @@
 #include "../Header.cpp"
-
+// Strong Connected Component
 vl dfs_num, dfs_low, visited; 
 vector<vl> g, invg;
 void Kosaraju(int u, int pass, vl& S) { // pass = 1 (original), 2 (transpose)
