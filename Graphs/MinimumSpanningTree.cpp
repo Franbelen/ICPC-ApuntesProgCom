@@ -1,7 +1,8 @@
 #include "../Header.cpp"
+
 int V,E;
 int w,v,u;
-// codigo competitive programming 4
+
 class UnionFind { // OOP style
     private: vi p, rank, setSize; // vi p is the key part
     int numSets;
@@ -27,14 +28,11 @@ class UnionFind { // OOP style
             }
         };
 
-//
-
 int main()
 {
     cin >> V >> E;
     
     vector< pair<int, ii> > Edgelist;
-
     for(int i = 0; i< E; i++)
     {
         cin >> u >> v >> w;
@@ -50,12 +48,10 @@ for (auto &[w, e] : Edgelist)
     u = e.first -1 ; v = e.second -1;
     
     if (UF.isSameSet(u, v)) continue; // already in the same CC
-
     mst_cost += w;
     UF.unionSet(u, v); // link them
     ++num_taken; // 1 more edge is taken
-    if (num_taken == V-1) break;
-    
+    if (num_taken == V-1) break; 
 }
 
 cout << mst_cost << '\n';

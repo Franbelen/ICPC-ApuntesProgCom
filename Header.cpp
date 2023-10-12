@@ -6,6 +6,7 @@ typedef unsigned long long ull;
 typedef vector<ll> vl;
 typedef vector<int> vi;
 typedef pair<ll,ll> pll;
+typedef pair<int,int> ii;
 typedef vector<pll> vp;
 typedef double db;
 #define INF 1e17
