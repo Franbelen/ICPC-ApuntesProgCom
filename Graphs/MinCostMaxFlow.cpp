@@ -6,7 +6,8 @@ struct Edge{
 vector<vector<int>> adj, cost, capacity;
 const int INF = 1e9;
 
-void shortest_paths(int n, int v0, vector<int>& d, vector<int>& p) {
+void shortest_paths(int n, int v0, vector<int>& d,vector<int>& p) 
+{
     d.assign(n, INF);
     d[v0] = 0;
     vector<bool> inq(n, false);
@@ -18,7 +19,8 @@ void shortest_paths(int n, int v0, vector<int>& d, vector<int>& p) {
         q.pop();
         inq[u] = false;
         for (int v : adj[u]) {
-            if (capacity[u][v] > 0 && d[v] > d[u] + cost[u][v]) {
+            if (capacity[u][v] > 0 && d[v] > d[u] + cost[u][v]) 
+            {
                 d[v] = d[u] + cost[u][v];
                 p[v] = u;
                 if (!inq[v]) {
@@ -31,7 +33,8 @@ void shortest_paths(int n, int v0, vector<int>& d, vector<int>& p) {
 }
  
  // flow, source, to;
-int min_cost_flow(int N, vector<Edge> edges, int K, int s, int t) {
+int min_cost_flow(int N, vector<Edge> edges, int K, int s, int t) 
+{
     adj.assign(N, vector<int>());
     cost.assign(N, vector<int>(N, 0));
     capacity.assign(N, vector<int>(N, 0));
@@ -126,5 +129,7 @@ int main(){
     }
     ans = min_cost_flow(2 * n + n*n + 10, ee, n, 0, 1);
     cout << ans << "\n";
-    cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
+    cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC 
+    << "ms\n";
+
 }

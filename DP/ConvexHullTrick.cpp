@@ -2,7 +2,8 @@
 
 typedef ll tc;
 struct Line{tc m,h;};
-struct CHT { // for minimum (for maximum just change the sign of lines)
+struct CHT { 
+	// for minimum (for maximum just change the sign of lines)
 	vector<Line> c;
 	int pos=0;
 	tc in(Line a, Line b){

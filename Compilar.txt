@@ -1,4 +1,6 @@
-notebook-generator ./ --author "Equipo Femenino UC" --size 11 --image ./.Assets/UC-Logo
+notebook-generator ./ --author "Teorema: No me acuerdo" --size 11 --image ./.Assets/UC-Logo
+
+notebook-generator ./ --author "Teorema: No me acuerdo" --size 10.5 --image ./.Assets/UC-Logo
 
 Para size 11, maximo 65 caracteres por linea.
 
